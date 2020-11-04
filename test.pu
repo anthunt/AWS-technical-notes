@@ -32,6 +32,7 @@ skinparam agent<<AWScloud>> {
 }
 
 AWSCLOUD(aws1) {
+  AMAZONS3(s3)
 }
 
 @enduml
