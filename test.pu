@@ -23,7 +23,7 @@ skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
 skinparam cloud<<AWScloud>> {
-  nodeStyle rectangle
+  BorderColor #000000
 }
 
 USER(user)
