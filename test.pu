@@ -32,7 +32,6 @@ skinparam agent<<AWScloud>> {
 }
 
 AWSCLOUD(aws1) {
-  AMAZONVPC(vpc)
 }
 
 @enduml
