@@ -41,6 +41,6 @@ AWSCLOUD(aws) {
   AMAZONS3(s3_partner,"Vendor's S3")
 }
 
-user -> aws
+user .right.-> aws
 
 @enduml
