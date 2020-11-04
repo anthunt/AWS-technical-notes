@@ -31,8 +31,7 @@ skinparam agent<<AWScloud>> {
     BorderColor transparent
 }
 
-AWSCLOUD(aws1, "Prod", package) {
-  AMAZONVPC(vpc, "Prod VPC", agent)
-}
+
+AMAZONVPC(vpc, "Prod VPC", rectangle)
 
 @enduml
