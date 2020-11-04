@@ -35,7 +35,7 @@ USER(user)
 CLIENT(browser)
 
 AWSCLOUD(aws1, "Production", agent) {
-  VIRTUALPRIVATECLOUD(vpc, "Production VPC", rectangle)
+  VIRTUALPRIVATECLOUD(vpc, "Production VPC", agent)
 }
 
 AWSCLOUD(aws) {
