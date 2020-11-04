@@ -38,8 +38,7 @@ AWSCLOUD(aws1, "Production", agent) {
   AMAZONVPC(vpc, "Production VPC")
 }
 
-AWSCLOUD(aws) {
-  
+AWSCLOUD(aws) {  
   AMAZONS3(s3)
   AMAZONS3(s3_partner,"Vendor's S3")
 }
