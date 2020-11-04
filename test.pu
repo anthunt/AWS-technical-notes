@@ -34,11 +34,11 @@ skinparam agent<<AWScloud>> {
 USER(user)
 CLIENT(browser)
 
-AWSCLOUD(aws1, "Production", agent)
+AWSCLOUD(aws1, "Production", agent) {
+  VIRTUALPRIVATECLOUD(vpc, "Production VPC", rectangle)
+}
 
 AWSCLOUD(aws) {
-
-  VIRTUALPRIVATECLOUD(vpc)
   
   AMAZONS3(s3)
   AMAZONS3(s3_partner,"Vendor's S3")
