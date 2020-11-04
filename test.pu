@@ -30,6 +30,8 @@ skinparam cloud<<AWScloud>> {
 USER(user)
 CLIENT(browser)
 
+AWSCLOUD(aws)
+
 AWSCLOUD(aws) {
 
   VIRTUALPRIVATECLOUD(vpc) {
