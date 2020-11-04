@@ -35,7 +35,7 @@ USER(user)
 CLIENT(browser)
 
 AWSCLOUD(aws1, "Production", agent) {
-  AMAZONVPC(vpc, "Production VPC", agent)
+  AMAZONVPC(vpc, "Production VPC")
 }
 
 AWSCLOUD(aws) {
