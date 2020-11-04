@@ -1,3 +1,5 @@
+@startuml
+
 !define AWSPUML https://raw.githubusercontent.com/milo-minderbinder/AWS-PlantUML/release/18-2-22/dist
 
 !includeurl AWSPUML/common.puml
@@ -20,7 +22,9 @@ skinparam nodeBackgroundColor White
 skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
-skinparam AWSCLOUDStyle rectangle
+skinparam general<<**AWSCLOUD**>> {
+  nodeStyle rectangle
+}
 
 USER(user)
 CLIENT(browser)
@@ -35,3 +39,5 @@ AWSCLOUD(aws) {
 }
 
 user -> aws
+
+@enduml
