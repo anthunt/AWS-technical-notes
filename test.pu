@@ -23,6 +23,7 @@ skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
 skinparam cloud<<AWScloud>> {
+  shadowing false
   BorderColor #000000
 }
 
