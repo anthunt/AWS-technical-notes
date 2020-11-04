@@ -40,6 +40,6 @@ AWSCLOUD(aws) {
   AMAZONS3(s3_partner,"Vendor's S3")
 }
 
-aws <.left. user
+user <-r- aws
 
 @enduml
