@@ -30,7 +30,7 @@ skinparam cloud<<AWScloud>> {
 USER(user)
 CLIENT(browser)
 
-AWSCLOUD(aws1111111, "test", package)
+AWSCLOUD(aws1111111, package)
 
 AWSCLOUD(aws) {
 
