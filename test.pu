@@ -14,6 +14,12 @@
 !includeurl AWSPUML/Storage/AmazonS3/AmazonS3.puml
 !includeurl AWSPUML/Storage/AmazonS3/bucket/bucket.puml
 
+skinparam componentArrowColor Black
+skinparam componentBackgroundColor White
+skinparam nodeBackgroundColor White
+skinparam agentBackgroundColor White
+skinparam artifactBackgroundColor White
+
 USER(user)
 CLIENT(browser)
 
