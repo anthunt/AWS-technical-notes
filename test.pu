@@ -34,8 +34,7 @@ AWSCLOUD(aws1111111)
 
 AWSCLOUD(aws) {
 
-  VIRTUALPRIVATECLOUD(vpc) {
-  }
+  VIRTUALPRIVATECLOUD(vpc)
   
   AMAZONS3(s3)
   AMAZONS3(s3_partner,"Vendor's S3")
