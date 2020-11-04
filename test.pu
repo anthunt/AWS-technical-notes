@@ -22,9 +22,13 @@ skinparam nodeBackgroundColor White
 skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
-skinparam agent<<AWScloud>> {
+skinparam cloud<<AWScloud>> {
   shadowing false
   BorderColor #000000
+}
+
+skinparam agent<<AWScloud>> {
+    BorderColor transparent
 }
 
 USER(user)
