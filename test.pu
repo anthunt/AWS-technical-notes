@@ -20,6 +20,8 @@ skinparam nodeBackgroundColor White
 skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
+skinparam AWSCLOUD rectangle
+
 USER(user)
 CLIENT(browser)
 
