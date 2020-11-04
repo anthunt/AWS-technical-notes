@@ -22,7 +22,7 @@ skinparam nodeBackgroundColor White
 skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
-skinparam general<<**AWSCLOUD**>> {
+skinparam general<<**AWScloud**>> {
   nodeStyle rectangle
 }
 
