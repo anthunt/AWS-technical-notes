@@ -29,6 +29,8 @@ skinparam rectangle<<AWScloud>> {
     shadowing false
 }
 
+left to right direction
+
 title AWS Multiple Account strategy
 
 USER(user, "IAM User")
@@ -36,9 +38,10 @@ AWSMANAGEMENTCONSOLE(console)
 
 AWSCLOUD(aws_billing, "Billing Account", rectangle)
 AWSCLOUD(aws_iam, "IAM Account", rectangle)
+
 AWSCLOUD(aws_dmz, "DMZ Account", rectangle)
 
-rectangle "Service Accounts" {
+rectangle "Services Accounts" {
     AWSCLOUD(aws_prd, "Production Account", rectangle)
     AWSCLOUD(aws_stg, "Staging Account", rectangle)
     AWSCLOUD(aws_dev, "Development Account", rectangle)
