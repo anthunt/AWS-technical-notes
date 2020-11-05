@@ -45,7 +45,7 @@ AWSCLOUD(aws_dev, "Development Account", rectangle)
 AWSCLOUD(aws_log, "Logging Account", rectangle)
 
 user -> console : Login into Aws Management Console
-console -> aws_iam : Login into IAM Account
+console -down-> aws_iam : Login into IAM Account
 aws_iam -down-> aws_billing : Assume
 aws_iam -down-> aws_dmz : Assume
 aws_iam -down-> aws_prd : Assume
