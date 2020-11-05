@@ -8,12 +8,12 @@ AWSCLOUD(aws_network, "Network Account", rectangle) {
   AMAZONVPC(vpc_prd, "Production VPC", rectangle) {
   
     rectangle "Public Subnet" {
-      AWSCLOUD(aws_prd, "Production Account", rectangle) {
+      AWSCLOUD(aws_prd_public, "Production Account", rectangle) {
       }
     }
     
     rectangle "Private Subnet" {
-      AWSCLOUD(aws_prd, "Production Account", rectangle) {
+      AWSCLOUD(aws_prd_private, "Production Account", rectangle) {
       }
     }
     
