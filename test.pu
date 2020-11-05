@@ -23,18 +23,10 @@ skinparam nodeBackgroundColor White
 skinparam agentBackgroundColor White
 skinparam artifactBackgroundColor White
 
-skinparam cloud<<AWScloud>> {
-  shadowing false
-  BorderColor #000000
-}
-
 skinparam rectangle<<AWScloud>> {
     BackgroundColor transparent
-    BorderColor transparent
-}
-
-skinparam rectangle<<AmazonVpc>> {
-    BorderColor green
+    BorderColor darkgray
+    shadowing false
 }
 
 title AWS Multiple Account strategy
