@@ -33,8 +33,7 @@ skinparam agent<<AWScloud>> {
 
 AWSCLOUD(aws, "Production Account", agent) {
 
-  AMAZONVPC(vpc, "Prod VPC", agent) {
-  }
+  
   
 }
 
