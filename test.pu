@@ -34,18 +34,18 @@ title AWS Multiple Account strategy
 USER(user, "IAM User")
 AWSMANAGEMENTCONSOLE(console)
 
-AWSCLOUD(aws_billing, "Billing Account", rectangle) order 10
-AWSCLOUD(aws_iam, "IAM Account", rectangle) order 20
+AWSCLOUD(aws_billing, "Billing Account", rectangle)
+AWSCLOUD(aws_iam, "IAM Account", rectangle)
 
-AWSCLOUD(aws_dmz, "DMZ Account", rectangle) order 30
+AWSCLOUD(aws_dmz, "DMZ Account", rectangle)
 
 rectangle "Services Accounts" {
-    AWSCLOUD(aws_prd, "Production Account", rectangle) order 40
-    AWSCLOUD(aws_stg, "Staging Account", rectangle) order 50
-    AWSCLOUD(aws_dev, "Development Account", rectangle) order 60
+    AWSCLOUD(aws_prd, "Production Account", rectangle)
+    AWSCLOUD(aws_stg, "Staging Account", rectangle)
+    AWSCLOUD(aws_dev, "Development Account", rectangle)
 }
 
-AWSCLOUD(aws_log, "Logging Account", rectangle) order 70
+AWSCLOUD(aws_log, "Logging Account", rectangle)
 
 user -> console : Login into Aws Management Console
 console -down-> aws_iam : Login into IAM Account
@@ -56,4 +56,9 @@ aws_iam -down-> aws_stg : Assume with stg administrator role
 aws_iam -down-> aws_dev : Assume with dev administrator role
 aws_iam -down-> aws_log : Assume with log administrator role
 
+@enduml
+
+@starturl
+
+title "test Second diagram"
 @enduml
