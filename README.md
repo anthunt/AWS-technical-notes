@@ -14,6 +14,6 @@ gantt
 
 ```plantuml
 @startuml
-!includeurl test.pu
+!includeurl https://raw.githubusercontent.com/anthunt/aws-cli-samples/master/test.pu
 @enduml
 ```
