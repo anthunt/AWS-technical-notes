@@ -32,6 +32,9 @@ skinparam rectangle<<AWScloud>> {
 }
 
 AWSCLOUD(aws, "Prod", rectangle) { 
+
+  AMAZONVPC(vpc, "Prod VPC", rectangle) {
+  }
   
 }
 
