@@ -46,11 +46,11 @@ AWSCLOUD(aws_log, "Logging Account", rectangle)
 
 user -> console
 console -> aws_iam
-aws_iam -> aws_billing
-aws_iam -> aws_dmz
-aws_iam -> aws_prd
-aws_iam -> aws_stg
-aws_iam -> aws_dev
-aws_iam -> aws_log
+aws_iam -down-> aws_billing
+aws_iam -down-> aws_dmz
+aws_iam -down-> aws_prd
+aws_iam -down-> aws_stg
+aws_iam -down-> aws_dev
+aws_iam -down-> aws_log
 
 @enduml
