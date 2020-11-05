@@ -1,0 +1,9 @@
+@startuml
+
+!define COMMON https://raw.githubusercontent.com/anthunt/aws-cli-samples/master/plantuml/common.puml
+!includeurl COMMON
+
+AWSCLOUD(aws, "Network Account", rectangle) {
+}
+
+@enduml
