@@ -34,7 +34,7 @@ skinparam rectangle<<AWScloud>> {
 }
 
 skinparam rectangle<<AmazonVpc>> {
-    BorderColor #1D8900
+    BorderColor green
 }
 
 title AWS Multiple Account strategy
