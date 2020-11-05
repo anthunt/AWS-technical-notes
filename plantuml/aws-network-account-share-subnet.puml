@@ -3,10 +3,20 @@
 !define COMMON https://raw.githubusercontent.com/anthunt/aws-cli-samples/master/plantuml/common.puml
 !includeurl COMMON
 
-AWSCLOUD(aws, "Network Account", rectangle) {
+AWSCLOUD(aws_network, "Network Account", rectangle) {
 
   AMAZONVPC(vpc_prd, "Production VPC", rectangle) {
   
+    rectangle "Public Subnet" {
+      AWSCLOUD(aws_prd, "Production Account", rectangle) {
+      }
+    }
+    
+    rectangle "Private Subnet" {
+      AWSCLOUD(aws_prd, "Production Account", rectangle) {
+      }
+    }
+    
   }
   
 }
