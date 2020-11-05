@@ -31,7 +31,7 @@ skinparam agent<<AWScloud>> {
     BorderColor transparent
 }
 
-AWSCLOUD(aws, "Prod", agent) { 
+AWSCLOUD(aws, "Prod", rectangle) { 
   
 }
 
