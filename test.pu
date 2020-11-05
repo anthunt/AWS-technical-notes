@@ -27,7 +27,7 @@ skinparam cloud<<AWScloud>> {
   BorderColor #000000
 }
 
-skinparam agent<<AWScloud>> {
+skinparam rectangle<<AWScloud>> {
     BorderColor transparent
 }
 
