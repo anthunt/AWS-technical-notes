@@ -4,6 +4,11 @@
 !includeurl COMMON
 
 AWSCLOUD(aws, "Network Account", rectangle) {
+
+  AMAZONVPC(vpc_prd, "Production VPC", rectangle) {
+  
+  }
+  
 }
 
 @enduml
