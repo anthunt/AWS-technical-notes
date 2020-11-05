@@ -57,8 +57,3 @@ aws_iam -down-> aws_dev : Assume with dev administrator role
 aws_iam -down-> aws_log : Assume with log administrator role
 
 @enduml
-
-@startuml
-
-title "test Second diagram"
-@enduml
