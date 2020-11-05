@@ -32,6 +32,7 @@ skinparam rectangle<<AWScloud>> {
     BorderColor transparent
 }
 
+USER(user)
 AWSMANAGEMENTCONSOLE(console)
 
 AWSCLOUD(aws, "Prod", rectangle) { 
