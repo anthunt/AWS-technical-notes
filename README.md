@@ -8,3 +8,9 @@ If you want to see the diagram then you have to use chrome extension or see this
 !includeurl https://raw.githubusercontent.com/anthunt/aws-cli-samples/master/test.pu
 @enduml
 ```
+
+```plantuml
+@startuml
+!includeurl https://raw.githubusercontent.com/anthunt/aws-cli-samples/master/test.pu
+@enduml
+```
