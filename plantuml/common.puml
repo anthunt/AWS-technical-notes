@@ -2,6 +2,7 @@
 
 !includeurl AWSPUML/common.puml
 !includeurl AWSPUML/ApplicationServices/AmazonAPIGateway/AmazonAPIGateway.puml
+!includeurl AWSPUML/Compute/AmazonEC2/AmazonEC2.puml
 !includeurl AWSPUML/Compute/AWSLambda/AWSLambda.puml
 !includeurl AWSPUML/Compute/AWSLambda/LambdaFunction/LambdaFunction.puml
 !includeurl AWSPUML/Database/AmazonDynamoDB/AmazonDynamoDB.puml
