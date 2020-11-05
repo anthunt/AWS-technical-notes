@@ -36,6 +36,12 @@ skinparam rectangle<<AWScloud>> {
 USER(user)
 AWSMANAGEMENTCONSOLE(console)
 
-AWSCLOUD(aws, "Prod", rectangle)
+AWSCLOUD(aws_billing, "Billing Account", rectangle)
+AWSCLOUD(aws_iam, "IAM Account", rectangle)
+AWSCLOUD(aws_dmz, "DMZ Account", rectangle)
+AWSCLOUD(aws_prod, "Production Account", rectangle)
+AWSCLOUD(aws_stg, "Staging Account", rectangle)
+AWSCLOUD(aws_dev, "Development Account", rectangle)
+AWSCLOUD(aws_log, "Logging Account", rectangle)
 
 @enduml
