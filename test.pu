@@ -29,7 +29,6 @@ skinparam cloud<<AWScloud>> {
 }
 
 skinparam rectangle<<AWScloud>> {
-    shadowing false
     BorderColor transparent
 }
 
