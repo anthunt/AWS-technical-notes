@@ -33,7 +33,7 @@ skinparam rectangle<<AWScloud>> {
     BorderColor transparent
 }
 
-USER(user)
+USER(user, "IAM User")
 AWSMANAGEMENTCONSOLE(console)
 
 AWSCLOUD(aws_billing, "Billing Account", rectangle)
@@ -44,13 +44,13 @@ AWSCLOUD(aws_stg, "Staging Account", rectangle)
 AWSCLOUD(aws_dev, "Development Account", rectangle)
 AWSCLOUD(aws_log, "Logging Account", rectangle)
 
-user -> console
-console -> aws_iam
-aws_iam -down-> aws_billing
-aws_iam -down-> aws_dmz
-aws_iam -down-> aws_prd
-aws_iam -down-> aws_stg
-aws_iam -down-> aws_dev
-aws_iam -down-> aws_log
+user -> console : Login into Aws Management Console
+console -> aws_iam : Login into IAM Account
+aws_iam -down-> aws_billing : Assume
+aws_iam -down-> aws_dmz : Assume
+aws_iam -down-> aws_prd : Assume
+aws_iam -down-> aws_stg : Assume
+aws_iam -down-> aws_dev : Assume
+aws_iam -down-> aws_log : Assume
 
 @enduml
