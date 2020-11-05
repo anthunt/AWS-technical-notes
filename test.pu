@@ -29,20 +29,13 @@ skinparam cloud<<AWScloud>> {
 }
 
 skinparam rectangle<<AWScloud>> {
+    shadowing false
     BorderColor transparent
 }
 
 USER(user)
 AWSMANAGEMENTCONSOLE(console)
 
-AWSCLOUD(aws, "Prod", rectangle) { 
-
-  AMAZONVPC(vpc, "Prod VPC", rectangle) {
-  
-  }
-  
-  AMAZONS3(s3)
-  
-}
+AWSCLOUD(aws, "Prod", rectangle)
 
 @enduml
