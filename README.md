@@ -12,7 +12,7 @@ gantt
     another task      : 24d
 ```
 
-```puml
+```plantuml
 !define AWSPUML https://raw.githubusercontent.com/milo-minderbinder/AWS-PlantUML/release/18-2-22/dist
 !includeurl AWSPUML/common.puml
 !includeurl AWSPUML/Storage/AmazonS3/AmazonS3.puml
