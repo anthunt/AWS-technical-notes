@@ -1,5 +1,3 @@
-# AWS Multiple Account strategy
-
 @startuml
 
 !define AWSPUML https://raw.githubusercontent.com/milo-minderbinder/AWS-PlantUML/release/18-2-22/dist
@@ -34,6 +32,8 @@ skinparam rectangle<<AWScloud>> {
     BackgroundColor transparent
     BorderColor transparent
 }
+
+title AWS Multiple Account strategy
 
 USER(user, "IAM User")
 AWSMANAGEMENTCONSOLE(console)
