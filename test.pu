@@ -29,25 +29,23 @@ skinparam rectangle<<AWScloud>> {
     shadowing false
 }
 
-left to right direction
-
 title AWS Multiple Account strategy
 
 USER(user, "IAM User")
 AWSMANAGEMENTCONSOLE(console)
 
-AWSCLOUD(aws_billing, "Billing Account", rectangle)
-AWSCLOUD(aws_iam, "IAM Account", rectangle)
+AWSCLOUD(aws_billing, "Billing Account", rectangle) order 10
+AWSCLOUD(aws_iam, "IAM Account", rectangle) order 20
 
-AWSCLOUD(aws_dmz, "DMZ Account", rectangle)
+AWSCLOUD(aws_dmz, "DMZ Account", rectangle) order 30
 
 rectangle "Services Accounts" {
-    AWSCLOUD(aws_prd, "Production Account", rectangle)
-    AWSCLOUD(aws_stg, "Staging Account", rectangle)
-    AWSCLOUD(aws_dev, "Development Account", rectangle)
+    AWSCLOUD(aws_prd, "Production Account", rectangle) order 40
+    AWSCLOUD(aws_stg, "Staging Account", rectangle) order 50
+    AWSCLOUD(aws_dev, "Development Account", rectangle) order 60
 }
 
-AWSCLOUD(aws_log, "Logging Account", rectangle)
+AWSCLOUD(aws_log, "Logging Account", rectangle) order 70
 
 user -> console : Login into Aws Management Console
 console -down-> aws_iam : Login into IAM Account
