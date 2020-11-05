@@ -29,6 +29,7 @@ skinparam cloud<<AWScloud>> {
 }
 
 skinparam rectangle<<AWScloud>> {
+    BackgroundColor transparent
     BorderColor transparent
 }
 
