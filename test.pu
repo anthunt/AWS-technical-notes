@@ -58,7 +58,7 @@ aws_iam -down-> aws_log : Assume with log administrator role
 
 @enduml
 
-@starturl
+@startuml
 
 title "test Second diagram"
 @enduml
