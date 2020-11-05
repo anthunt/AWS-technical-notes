@@ -9,13 +9,13 @@ AWSCLOUD(aws_network, "Network Account", rectangle) {
   
     rectangle "Public Subnet" {
       AWSCLOUD(aws_prd_public, "Production Account", rectangle) {
-        AMAZONEC2(ec2_bastion)
+
       }
     }
     
     rectangle "Private Subnet" {
       AWSCLOUD(aws_prd_private, "Production Account", rectangle) {
-         AMAZONEC2(ec2_was)
+
       }
     }
     
