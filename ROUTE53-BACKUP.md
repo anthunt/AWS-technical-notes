@@ -50,7 +50,7 @@ aws route53 list-resource-record-sets — hosted-zone-id YOUR-HOSTED-ZONE-ID --o
 - Add the next phrase at the beginning of the middle part.
 ```
 {
-  "Action": "CREATE",
+  "Action": "UPSERT",
   "ResourceRecordSet":
 ```
 
@@ -58,7 +58,7 @@ aws route53 list-resource-record-sets — hosted-zone-id YOUR-HOSTED-ZONE-ID --o
 ```
 }},
 {
-  "Action": "CREATE",
+  "Action": "UPSERT",
   "ResourceRecordSet":
 ```
 
@@ -68,7 +68,7 @@ aws route53 list-resource-record-sets — hosted-zone-id YOUR-HOSTED-ZONE-ID --o
 ### 5. Add the following sentences before and after the remaining middle part.
 ```
 {
-            "Comment": "UPSERT a record ",
+            "Comment": "Route53 [Your Hosted Zone] Backup file",
             "Changes": [
             ~~~~ Add the middle part !! ~~~
             ]
