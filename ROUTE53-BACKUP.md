@@ -47,7 +47,9 @@ aws route53 list-resource-record-sets — hosted-zone-id YOUR-HOSTED-ZONE-ID --o
 ```
 
 ### 4. Change the following phrases.
+
 - Add the next phrase at the beginning of the middle part.
+ 
 ```
 {
   "Action": "UPSERT",
@@ -55,6 +57,7 @@ aws route53 list-resource-record-sets — hosted-zone-id YOUR-HOSTED-ZONE-ID --o
 ```
 
 - All replace "}," to the next phrase
+
 ```
 }},
 {
@@ -75,5 +78,149 @@ aws route53 list-resource-record-sets — hosted-zone-id YOUR-HOSTED-ZONE-ID --o
 }
 ```
 
-## 3. Backing up Route53 with Python program
+## 3. Backing up Route53 with Python program for Lambda Function
+
+- A lambda function that uploads all information composed of AWS Route53 HostedZone to S3 by writing the backup time as a file name.
+
+```
+import json
+import boto3
+import datetime
+import logging
+
+# Logger Configuration
+logger = logging.getLogger()
+
+# Logging Level Configuration
+logger.setLevel(logging.INFO)
+
+def lambda_handler(event, context):
+
+    # Backup S3 Bucket 
+    BackupBucketName = "Your S3 Bucket Name"
+    
+    # Backup start time
+    now = datetime.datetime.now()
+    # Backup start formatted day
+    nowDate = now.strftime('%Y-%m-%d')
+    # Backup start formatted hour, min, sec
+    nowDatetime = now.strftime('%H-%M-%S')
+    
+    # Create Route53 client
+    route53client = boto3.client('route53')
+    
+    # Create S3 client
+    s3client = boto3.client("s3")
+    
+    # Get count response of Hosted Zones
+    response = route53client.get_hosted_zone_count()
+    
+    # Set count variable for HostedZone count
+    hostedZoneCount = response["HostedZoneCount"]
+    
+    # HostedZoneCount Logging
+    logger.info("HostedZoneCount = {}".format(hostedZoneCount))
+    
+    # Get response HostedZones list
+    response = route53client.list_hosted_zones()
+    
+    # Set HostedZones list variable
+    HostedZones = list(response["HostedZones"])
+    
+    # HostedZones List Loop
+    for zone in HostedZones:
+        
+        # Set HostedZoneId
+        ZoneId = zone["Id"].replace("/hostedzone/", "")
+        
+        # Set HostedZone Name
+        ZoneName = zone["Name"]
+        
+        # Se HostedZone Comment
+        ZoneComment = zone["Config"]["Comment"]
+        
+        # Set Private/Public Zone
+        IsPrivate = zone["Config"]["PrivateZone"]
+        
+        # Set folder name(S3 Prefix) (Private/Public)
+        Forder = "PrivateZone" if IsPrivate else "PublicZone"
+        
+        ResourceRecordSets = []
+        
+        # Search resource record sets for HostedZone
+        response = route53client.list_resource_record_sets(
+            HostedZoneId=ZoneId
+        )
+        ResourceRecordSets.extend( list(response["ResourceRecordSets"]) )
+        
+        while response["IsTruncated"]:
+        
+            # Search resource record sets for HostedZone
+            response = route53client.list_resource_record_sets(
+                HostedZoneId = ZoneId
+                , StartRecordName = response["NextRecordName"]
+                , StartRecordType = response["NextRecordType"]
+            )
+            ResourceRecordSets.extend( list(response["ResourceRecordSets"]) )
+        
+        BackupSet = {
+              "Comment" : nowDate + "/" + nowDatetime + "/" + Forder + "/" + ZoneName + " - [" + ZoneComment + "].json Backup Restore"
+            , "Changes" : []
+            
+        }
+        
+        iRecord = 0;
+        iFileCount = 1;
+        
+        for record in ResourceRecordSets:
+            
+            if record["Type"] != "NS" and record["Type"] != "SOA":
+                
+                if iRecord % 400 == 0:
+                    
+                    if iRecord > 0:
+                        
+                        ObjectKey = "Route53Backup/" + nowDate + "/" + nowDatetime + "/" + Forder + "/" + ZoneName + " - [" + ZoneComment + "]." + str(iFileCount) + ".json"
+                        BodyBytes = str(BackupSet).replace("'", "\"").encode()
+                        upload_s3(s3client, BackupBucketName, ObjectKey, BodyBytes)
+                        iFileCount = iFileCount + 1
+                        
+                    BackupSet["Changes"].clear()
+                    
+                iRecord = iRecord + 1
+                
+                BackupSet["Changes"].append({
+                    "Action" : "UPSERT"
+                    , "ResourceRecordSet" : record
+                })
+        
+        ObjectKey = "Route53Backup/" + nowDate + "/" + nowDatetime + "/" + Forder + "/" + ZoneName + " - [" + ZoneComment + "]." + str(iFileCount) + ".json"
+        BodyBytes = str(BackupSet).replace("'", "\"").encode()
+        upload_s3(s3client, BackupBucketName, ObjectKey, BodyBytes)
+        
+        logger.info("Export Completed - {}".format(ZoneName))
+        
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
+
+
+def upload_s3(s3client, BackupBucketName, ObjectKey, BodyBytes):
+    
+    # Upload HostedZone Backup file to S3 backup bucket
+    s3client.put_object(
+        Bucket=BackupBucketName,
+        Key=ObjectKey,
+        Body=BodyBytes
+    )
+```
+
 ## 4. Intention to Lambda CloudWatch Events
+
+1. Create a Python program for the lambda function created earlier as a lambda function
+2. Create a Lambda function call event according to the backup cycle in CloudWatch Event
+
+
+
